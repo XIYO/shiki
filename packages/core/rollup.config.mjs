@@ -1,11 +1,11 @@
 // @ts-check
-import { defineConfig } from 'rollup'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import replace from '@rollup/plugin-replace'
-import dts from 'rollup-plugin-dts'
 import json from '@rollup/plugin-json'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import replace from '@rollup/plugin-replace'
 import fs from 'fs-extra'
+import { defineConfig } from 'rollup'
+import dts from 'rollup-plugin-dts'
 import ts from 'rollup-plugin-typescript2'
 
 const entries = [
@@ -32,6 +32,17 @@ const plugins = [
   wasmPlugin(),
 ]
 
+const external = [
+  'hast',
+  '@shikijs/vscode-textmate',
+
+  // Externalize them to make it easier to patch and experiments
+  // Versions are pinned to avoid regressions
+  // Later we might consider to bundle them.
+  'oniguruma-to-js',
+  'regex',
+]
+
 export default defineConfig([
   {
     input: entries,
@@ -46,6 +57,7 @@ export default defineConfig([
     plugins: [
       ...plugins,
     ],
+    external,
   },
   {
     input: entries,
@@ -70,9 +82,7 @@ export default defineConfig([
       if (!/Circular|an empty chunk/.test(warning.message))
         warn(warning)
     },
-    external: [
-      'hast',
-    ],
+    external,
   },
 ])
 

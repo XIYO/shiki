@@ -1,14 +1,14 @@
+import type { Root } from 'hast'
 import fs from 'node:fs/promises'
-import { unified } from 'unified'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
 import rehypeRaw from 'rehype-raw'
 import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import { createHighlighter } from 'shiki'
+import { unified } from 'unified'
+
 import { visit } from 'unist-util-visit'
 import { expect, it } from 'vitest'
-
-import { createHighlighter } from 'shiki'
-import type { Root } from 'hast'
 import { transformerMetaHighlight } from '../../transformers/src'
 import rehypeShikiFromHighlighter from '../src/core'
 
@@ -48,7 +48,6 @@ it('run with rehype-raw', async () => {
     ],
   })
 
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const rehypeMetaString = () => (tree: Root) => {
     visit(tree, 'element', (node) => {
       if (node.tagName === 'code' && node.data?.meta) {

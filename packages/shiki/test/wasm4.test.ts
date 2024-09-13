@@ -1,17 +1,16 @@
 import { expect, it } from 'vitest'
-import { createHighlighterCore } from '../src/core'
+// eslint-disable-next-line antfu/no-import-dist
+import { wasmBinary } from '../../engine-oniguruma/dist/wasm-inlined.mjs'
 
 import js from '../src/assets/langs/javascript'
 import nord from '../src/assets/themes/nord'
 
-// eslint-disable-next-line antfu/no-import-dist
-import { wasmBinary } from '../../core/dist/wasm-inlined.mjs'
+import { createHighlighterCore } from '../src/core'
 
 it('wasm', async () => {
   const shiki = await createHighlighterCore({
     themes: [nord],
     langs: [js as any],
-    // eslint-disable-next-line unicorn/consistent-function-scoping
     loadWasm: Promise.resolve().then(() => obj => WebAssembly.instantiate(wasmBinary, obj).then(r => r.instance)),
   })
 

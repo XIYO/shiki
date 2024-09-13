@@ -1,4 +1,4 @@
-import type { ShikiTransformer, TransformerOptions } from '../types'
+import type { ShikiTransformer, TransformerOptions } from '@shikijs/types'
 import { transformerDecorations } from '../transformer-decorations'
 
 const builtInTransformers: ShikiTransformer[] = [

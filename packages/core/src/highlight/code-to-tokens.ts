@@ -1,8 +1,8 @@
-import { ShikiError } from '../error'
-import type { CodeToTokensOptions, ShikiInternal, ThemedToken, ThemedTokenWithVariants, TokensResult } from '../types'
+import type { CodeToTokensOptions, ShikiInternal, ThemedToken, ThemedTokenWithVariants, TokensResult } from '@shikijs/types'
+import { ShikiError } from '../../../types/src/error'
 import { applyColorReplacements, getTokenStyleObject, resolveColorReplacements, stringifyTokenStyle } from '../utils'
-import { codeToTokensWithThemes } from './code-to-tokens-themes'
 import { codeToTokensBase } from './code-to-tokens-base'
+import { codeToTokensWithThemes } from './code-to-tokens-themes'
 
 /**
  * High-level code-to-tokens API.
@@ -26,7 +26,8 @@ export function codeToTokens(
       cssVariablePrefix = '--shiki-',
     } = options
 
-    const themes = Object.entries(options.themes)
+    const themes = Object
+      .entries(options.themes)
       .filter(i => i[1])
       .map(i => ({ color: i[0], theme: i[1]! }))
       .sort((a, b) => a.color === defaultColor ? -1 : b.color === defaultColor ? 1 : 0)

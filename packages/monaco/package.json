@@ -1,7 +1,7 @@
 {
   "name": "@shikijs/monaco",
   "type": "module",
-  "version": "1.15.2",
+  "version": "1.17.6",
   "description": "Use Shiki for Monaco Editor",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shikijs/shiki.git",
-    "directory": "packages/shiki-monaco"
+    "directory": "packages/monaco"
   },
   "bugs": "https://github.com/shikijs/shiki/issues",
   "keywords": [
@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@shikijs/core": "workspace:*",
+    "@shikijs/types": "workspace:*",
     "@shikijs/vscode-textmate": "catalog:"
   },
   "devDependencies": {

@@ -1,12 +1,12 @@
 /// <reference types="mdast-util-to-hast" />
 
-import type { LanguageInput } from 'shiki/core'
-import type { BuiltinLanguage, BuiltinTheme } from 'shiki'
-import { bundledLanguages, getSingletonHighlighter } from 'shiki'
-import type { Plugin } from 'unified'
+import type { LanguageInput } from '@shikijs/types'
 import type { Root } from 'hast'
-import rehypeShikiFromHighlighter from './core'
+import type { BuiltinLanguage, BuiltinTheme } from 'shiki'
+import type { Plugin } from 'unified'
 import type { RehypeShikiCoreOptions } from './types'
+import { bundledLanguages, getSingletonHighlighter } from 'shiki'
+import rehypeShikiFromHighlighter from './core'
 
 export type RehypeShikiOptions = RehypeShikiCoreOptions
   & {

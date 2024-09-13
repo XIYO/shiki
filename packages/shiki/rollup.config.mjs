@@ -1,14 +1,14 @@
 // @ts-check
 import { basename, dirname, join } from 'node:path'
-import { defineConfig } from 'rollup'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import fg from 'fast-glob'
+import fs from 'fs-extra'
+import { defineConfig } from 'rollup'
 import copy from 'rollup-plugin-copy'
 import dts from 'rollup-plugin-dts'
 import esbuild from 'rollup-plugin-esbuild'
-import json from '@rollup/plugin-json'
-import fs from 'fs-extra'
-import fg from 'fast-glob'
 
 const entries = [
   'src/index.ts',
@@ -21,12 +21,19 @@ const entries = [
   'src/bundle-full.ts',
   'src/bundle-web.ts',
   'src/theme-css-variables.ts',
+  'src/engine-javascript.ts',
+  'src/engine-oniguruma.ts',
+  'src/textmate.ts',
 ]
 
 const external = [
+  '@shikijs/types',
   '@shikijs/core',
   '@shikijs/core/wasm-inlined',
   '@shikijs/core/types',
+  '@shikijs/engine-javascript',
+  '@shikijs/engine-oniguruma',
+  '@shikijs/vscode-textmate',
   'shiki/wasm',
 ]
 

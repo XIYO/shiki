@@ -1,17 +1,18 @@
 {
   "type": "module",
-  "version": "1.15.2",
+  "version": "1.17.6",
   "private": true,
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.10.0",
   "scripts": {
     "lint": "eslint . --cache",
-    "release": "bumpp && pnpm -r publish",
+    "release": "bumpp",
+    "publish:ci": "pnpm -r publish --access public --no-git-checks",
     "test": "vitest",
     "typecheck": "vue-tsc --noEmit",
     "build": "pnpm -r run build",
     "docs": "pnpm -C docs run docs:dev",
     "docs:build": "pnpm -C docs run docs:build",
-    "report-engine-js": "jiti scripts/report-engine-js-compat.ts",
+    "report-engine-js": "esno scripts/report-engine-js-compat.ts",
     "bench": "vitest bench",
     "prepare": "simple-git-hooks"
   },
@@ -36,6 +37,7 @@
     "@vitest/coverage-v8": "catalog:",
     "ansi-sequence-parser": "catalog:",
     "bumpp": "catalog:",
+    "diff-match-patch-es": "^0.1.0",
     "eslint": "catalog:",
     "eslint-plugin-format": "catalog:",
     "esno": "catalog:",
@@ -78,12 +80,13 @@
     "@shikijs/transformers": "workspace:*",
     "@shikijs/twoslash": "workspace:*",
     "@shikijs/vitepress-twoslash": "workspace:*",
-    "@types/hast": "^3.0.4",
-    "@types/mdast": "^4.0.4",
-    "@types/unist": "^3.0.3",
+    "@types/hast": "catalog:",
+    "@types/mdast": "catalog:",
+    "@types/unist": "catalog:",
     "shiki": "workspace:*",
-    "unified": "^11.0.5",
-    "vscode-oniguruma": "^1.7.0"
+    "typescript": "catalog:",
+    "unified": "catalog:",
+    "vscode-oniguruma": "catalog:"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
