@@ -201,6 +201,7 @@ export default withMermaid(defineConfig({
   locales: {
     root: {
       label: 'English',
+      link: 'https://shiki.style',
     },
     zh: {
       label: '简体中文 (Community)',
