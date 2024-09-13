@@ -1,3 +1,6 @@
+> [!note]
+> 한국어화 브랜치 입니다.
+
 <img src="https://raw.githubusercontent.com/xiyo/shiki/translate-ko/docs/public/logo.svg" width="150" alt="Shiki Logo" />
 
 # Shiki 式
@@ -7,8 +10,6 @@
 [![Codecov](https://img.shields.io/codecov/c/github/shikijs/shiki?token=1uJYfXgZG3&style=flat&labelColor=1B3C4A&color=32A9C3&precision=1)](https://app.codecov.io/gh/shikijs/shiki/tree)
 
 TextMate 문법을 기반으로 한 아름답고 강력한 구문 강조 도구입니다.
-
-> 한국어화 브랜치 입니다.
 
 [📚 **문서**](https://shiki.xiyo.dev)
 
