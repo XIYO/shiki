@@ -22,7 +22,7 @@ npm i -D @shikijs/vitepress-twoslash
 
 In your [`.vitepress/config.ts`](https://vitepress.dev/reference/site-config):
 
-```ts twoslash
+```ts
 // .vitepress/config.ts
 import { defineConfig } from 'vitepress'
 import { transformerTwoslash } from '@shikijs/vitepress-twoslash' // [!code hl]
@@ -38,7 +38,7 @@ export default defineConfig({
 
 And then in your [`.vitepress/theme/index.ts`](https://vitepress.dev/guide/custom-theme), install the Vue plugin and import the css with `@shikijs/vitepress-twoslash/styles.css`.
 
-```ts twoslash
+```ts
 // @noErrors: true
 // .vitepress/theme/index.ts
 import Theme from 'vitepress/theme'
@@ -72,7 +72,7 @@ import '@shikijs/vitepress-twoslash/style-core.css'
 That's it, you can now use `ts twoslash` in your markdown files to enable the beautiful type hover.
 
 ````md
-```ts twoslash
+```ts
 console.log('hello')
 //      ^?
 ```
@@ -80,7 +80,7 @@ console.log('hello')
 
 It will be rendered as:
 
-```ts twoslash
+```ts
 console.log('hello')
 //      ^?
 ```
@@ -91,7 +91,7 @@ console.log('hello')
 
 In addition, this plugin also integrated [`twoslash-vue`](https://twoslash.netlify.app/packages/vue) for you, so that you can also highlight Vue SFC blocks with `vue twoslash`:
 
-```vue twoslash
+```vue
 <script setup>
 import { onMounted, ref } from 'vue'
 
