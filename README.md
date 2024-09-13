@@ -13,7 +13,8 @@ TextMate 문법을 기반으로 한 아름답고 강력한 구문 강조 도구�
 
 [📚 **문서**](https://shiki.xiyo.dev)
 
-> [!NOTE] > **v1 브랜치**를 보고 계십니다. 이 버전은 [v0.x에서의 주요 개편](https://github.com/shikijs/shiki/releases/tag/v1.0.0)입니다. 업그레이드하려면 [마이그레이션 가이드](https://shiki.xiyo.dev/guide/migrate#migrate-from-v0-14)를 확인하세요.
+> [!NOTE]
+> **v1 브랜치**를 보고 계십니다. 이 버전은 [v0.x에서의 주요 개편](https://github.com/shikijs/shiki/releases/tag/v1.0.0)입니다. 업그레이드하려면 [마이그레이션 가이드](https://shiki.xiyo.dev/guide/migrate#migrate-from-v0-14)를 확인하세요.
 >
 > [Shiki v1.0의 발전](https://nuxt.com/blog/shiki-v1)에 대해 더 읽어보세요.
 >
