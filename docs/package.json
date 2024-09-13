@@ -4,8 +4,7 @@
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview",
-    "hello": "echo 'Hello World'"
+    "docs:preview": "vitepress preview"
   },
   "dependencies": {
     "@iconify-json/ph": "catalog:",
