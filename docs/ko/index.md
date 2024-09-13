@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 시작하기
-      link: /guide/
+      link: /ko/guide/
     - theme: alt
       text: 설치
-      link: /guide/install/
+      link: /ko/guide/install/
 
 features:
   - title: 정확하고 아름다움

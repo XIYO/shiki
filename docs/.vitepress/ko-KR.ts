@@ -89,9 +89,13 @@ export const ko = defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/shikijs/shiki/edit/main/docs/:path',
+      pattern: 'https://github.com/xiyo/shiki/edit/translate-ko/docs/:path',
       text: '이 페이지 편집 제안하기',
     },
+
+    socialLinks: [
+      { icon: 'github', link: 'https://github.com/xiyo/shiki' },
+    ],
 
     footer: {
       message: 'MIT 라이선스 하에 배포됨.',
@@ -118,4 +122,12 @@ export const ko = defineConfig({
     lightModeSwitchTitle: '라이트 모드로 변경',
     darkModeSwitchTitle: '다크 모드로 변경',
   },
+
+  head: [
+    ['meta', { property: 'og:image', content: 'https://shiki.xiyo.dev/og.png' }],
+    ['meta', { property: 'og:description', content: '아름답고 강력한 구문 강조 도구' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: 'https://shiki.xiyo.dev/og.png' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0, viewport-fit=cover' }],
+  ],
 })
