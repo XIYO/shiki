@@ -10,5 +10,5 @@
 /*.woff2  /:splat    200
 /*.json   /:splat    200
 /*.ico    /:splat    200
-
+/assets/*    /assets/:splat 200
 /*        /ko/:splat 200
