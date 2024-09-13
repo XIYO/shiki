@@ -1,4 +1,3 @@
-```markdown
 <img src="https://raw.githubusercontent.com/xiyo/shiki/translate-ko/docs/public/logo.svg" width="150" alt="Shiki Logo" />
 
 # Shiki 式
@@ -22,4 +21,3 @@ TextMate 문법을 기반으로 한 아름답고 강력한 구문 강조 도구�
 ## 라이선스
 
 [MIT](./LICENSE)
-```
