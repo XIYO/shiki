@@ -8,6 +8,7 @@ import { transformerMetaWordHighlight, transformerNotationWordHighlight, transfo
 import { defaultHoverInfoProcessor, transformerTwoslash } from '../../packages/vitepress-twoslash/src/index'
 import { version } from '../../package.json'
 import vite from './vite.config'
+import { ko } from './ko-KR'
 
 const GUIDES: DefaultTheme.NavItemWithLink[] = [
   { text: 'Getting Started', link: '/guide/' },
@@ -200,7 +201,12 @@ export default withMermaid(defineConfig({
     },
     zh: {
       label: '简体中文 (Community)',
+      lang: 'zh-CN',
       link: 'https://shiki.tmrs.site',
+    },
+    ko: {
+      label: '한국어 (Community)',
+      ...ko,
     },
   },
 
