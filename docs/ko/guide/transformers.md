@@ -56,7 +56,7 @@ flowchart LR
 
 ## 메타
 
-트랜스포머는 [지원되는 통합](/guide/install#integrations)에서 마크다운 'meta' 문자열에도 접근할 수 있습니다.
+트랜스포머는 [지원되는 통합](/ko/guide/install#integrations)에서 마크다운 'meta' 문자열에도 접근할 수 있습니다.
 
 ````markdown
 <!-- [!code word:meta=here] -->
