@@ -58,21 +58,18 @@ flowchart LR
 
 트랜스포머는 [지원되는 통합](/ko/guide/install#integrations)에서 마크다운 'meta' 문자열에도 접근할 수 있습니다.
 
+<!-- eslint-skip -->
+
 ````markdown
 <!-- [!code word:meta=here] -->
-
 ```html meta=here
-
-```
 ````
 
 다음과 같이 원시 메타에 접근할 수 있습니다:
 
+<!-- eslint-skip -->
+
 ```ts
 options.meta
 // => { meta: 'here', __raw: 'meta=here' }
-```
-
-```
-
 ```
