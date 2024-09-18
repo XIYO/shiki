@@ -17,14 +17,14 @@ npm i -D @shikijs/transformers
 ## 사용법
 
 ```ts twoslash
-import {
-  codeToHtml,
-} from 'shiki'
 // [!code highlight:5]
 import {
   transformerNotationDiff,
   // ...
 } from '@shikijs/transformers'
+import {
+  codeToHtml,
+} from 'shiki'
 
 const code = `console.log('hello')`
 const html = await codeToHtml(code, {
@@ -71,14 +71,14 @@ console.log('goodbye')
 
 ```html
 <!-- 스타일 속성 제외한 출력 -->
-<pre class="shiki has-diff">
+<pre class="shiki has-diff"> <!-- Notice `has-diff` -->
   <code>
     <span class="line"></span>
     <span class="line"><span>function</span><span>()</span><span></span><span>{</span></span>
-    <span class="line diff remove">
+    <span class="line diff remove">  <!-- Notice `diff` and `remove` -->
       <span></span><span>console</span><span>.</span><span>log</span><span>(</span><span>&#39;</span><span>hewwo</span><span>&#39;</span><span>) </span>
     </span>
-    <span class="line diff add">
+    <span class="line diff add">  <!-- Notice `diff` and `add` -->
       <span></span><span>console</span><span>.</span><span>log</span><span>(</span><span>&#39;</span><span>hello</span><span>&#39;</span><span>) </span>
     </span>
     <span class="line"><span></span><span>}</span></span>
@@ -257,9 +257,7 @@ console.warn('Warning') // [!code warning]
 
 <div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;" tabindex="0"><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676;">function</span><span class="space"> </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">block</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">{</span></span>
 <span class="line"><span class="space"> </span><span class="space"> </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">space</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span></span>
-<span class="line"><span class="tab">&#9;</span><span class="tab">&#9;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">tab</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE;">
-
- </span></span>
+<span class="line"><span class="tab">&#9;</span><span class="tab">&#9;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">tab</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE;"> </span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666;">}</span></span></code></pre></div>
 
 ::: details 예시 CSS
@@ -289,7 +287,7 @@ console.warn('Warning') // [!code warning]
 
 ### `transformerMetaHighlight`
 
-코드 스니펫에 제공된 [메타 문자열](/guide/transformers#meta)에 따라 줄을 강조합니다.
+코드 스니펫에 제공된 [메타 문자열](/ko/guide/transformers#meta)에 따라 줄을 강조합니다.
 
 ````md
 ```js {1,3-4}
