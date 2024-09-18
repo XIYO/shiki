@@ -6,15 +6,15 @@ outline: deep
 
 <Badges name="@shikijs/transformers" />
 
-Common transformers for Shiki, inspired by [shiki-processor](https://github.com/innocenzi/shiki-processor).
+[shiki-processor](https://github.com/innocenzi/shiki-processor)에서 영감을 받은 Shiki의 공통 변환기.
 
-## Install
+## 설치
 
 ```bash
 npm i -D @shikijs/transformers
 ```
 
-## Usage
+## 사용법
 
 ```ts twoslash
 import {
@@ -37,15 +37,15 @@ const html = await codeToHtml(code, {
 })
 ```
 
-## Unstyled
+## 스타일 없음
 
-Transformers only applies classes and does not come with styles; you can provide your own CSS rules to style them properly.
+변환기는 클래스만 적용되며, 스타일은 포함되지 않습니다. 올바르게 스타일링하려면 직접 CSS 규칙을 제공해야 합니다.
 
-## Transformers
+## 변환기
 
 ### `transformerNotationDiff`
 
-Use `[!code ++]` and `[!code --]` to mark added and removed lines.
+`[!code ++]`와 `[!code --]`를 사용해 추가 및 제거된 줄을 표시합니다.
 
 ````md
 ```ts
@@ -55,7 +55,7 @@ console.log('goodbye')
 ```
 ````
 
-Renders (with custom CSS rules):
+렌더링 (사용자 정의 CSS 규칙 적용):
 
 ```ts
 console.log('hewwo') // [!code --]
@@ -63,22 +63,22 @@ console.log('hello') // [!code ++]
 console.log('goodbye')
 ```
 
-- `// [!code ++]` outputs: `<span class="line diff add">`
-- `// [!code --]` outputs: `<span class="line diff remove">`
-- The outer `<pre>` tag is modified: `<pre class="has-diff">`
+- `// [!code ++]`: `<span class="line diff add">`로 출력
+- `// [!code --]`: `<span class="line diff remove">`로 출력
+- 외부 `<pre>` 태그 변경: `<pre class="has-diff">`
 
-::: details HTML Output
+::: details HTML 출력
 
 ```html
-<!-- Output (stripped of `style` attributes for clarity) -->
-<pre class="shiki has-diff"> <!-- Notice `has-diff` -->
+<!-- 스타일 속성 제외한 출력 -->
+<pre class="shiki has-diff">
   <code>
     <span class="line"></span>
     <span class="line"><span>function</span><span>()</span><span></span><span>{</span></span>
-    <span class="line diff remove">  <!-- Notice `diff` and `remove` -->
+    <span class="line diff remove">
       <span></span><span>console</span><span>.</span><span>log</span><span>(</span><span>&#39;</span><span>hewwo</span><span>&#39;</span><span>) </span>
     </span>
-    <span class="line diff add">  <!-- Notice `diff` and `add` -->
+    <span class="line diff add">
       <span></span><span>console</span><span>.</span><span>log</span><span>(</span><span>&#39;</span><span>hello</span><span>&#39;</span><span>) </span>
     </span>
     <span class="line"><span></span><span>}</span></span>
@@ -93,7 +93,7 @@ console.log('goodbye')
 
 ### `transformerNotationHighlight`
 
-Use `[!code highlight]` to highlight a line.
+`[!code highlight]`를 사용해 줄을 강조합니다.
 
 ````md
 ```ts
@@ -103,7 +103,7 @@ console.log('Not highlighted')
 ```
 ````
 
-Renders (with custom CSS rules):
+렌더링 (사용자 정의 CSS 규칙 적용):
 
 ```ts
 console.log('Not highlighted')
@@ -111,10 +111,10 @@ console.log('Highlighted') // [!code highlight]
 console.log('Not highlighted')
 ```
 
-- `// [!code highlight]` outputs: `<span class="line highlighted">`
-- The outer `<pre>` tag is modified: `<pre class="has-highlighted">`
+- `// [!code highlight]`: `<span class="line highlighted">`로 출력
+- 외부 `<pre>` 태그 변경: `<pre class="has-highlighted">`
 
-You can also highlight multiple lines with a single comment:
+하나의 주석으로 여러 줄을 강조할 수도 있습니다:
 
 ````md
 ```ts
@@ -125,7 +125,7 @@ console.log('Not highlighted')
 ```
 ````
 
-Renders:
+렌더링:
 
 ```ts
 // [!code highlight:3]
@@ -138,7 +138,7 @@ console.log('Not highlighted')
 
 ### `transformerNotationWordHighlight`
 
-Use `[!code word:Hello]` to highlight the word `Hello` in any subsequent code.
+`[!code word:Hello]`를 사용해 이후 코드에서 `Hello`라는 단어를 강조합니다.
 
 ````md
 ```ts
@@ -148,7 +148,7 @@ console.log(message) // prints Hello World
 ```
 ````
 
-Renders (with custom CSS rules):
+렌더링 (사용자 정의 CSS 규칙 적용):
 
 ```ts
 // [!code word:Hello]
@@ -156,9 +156,9 @@ const message = 'Hello World'
 console.log(message) // prints Hello World
 ```
 
-Outputs: `<span class="highlighted-word">Hello</span>` for matched words.
+매칭된 단어는 `<span class="highlighted-word">Hello</span>`로 출력됩니다.
 
-You can also specify the number of lines to highlight words on, e.g. `[!code word:Hello:1]` will only highlight occurrences of `Hello` on the next line.
+특정 줄에만 단어를 강조하려면, `[!code word:Hello:1]`과 같이 작성하여 다음 줄에서만 `Hello`를 강조할 수 있습니다.
 
 ````md
 ```ts
@@ -168,7 +168,7 @@ console.log(message) // prints Hello World
 ```
 ````
 
-Renders:
+렌더링:
 
 ```ts
 // [!code word:Hello:1]
@@ -180,7 +180,7 @@ console.log(message) // prints Hello World
 
 ### `transformerNotationFocus`
 
-Use `[!code focus]` to focus a line.
+`[!code focus]`를 사용해 줄을 포커스합니다.
 
 ````md
 ```ts
@@ -190,7 +190,7 @@ console.log('Not focused');
 ```
 ````
 
-Renders (with custom CSS rules):
+렌더링 (사용자 정의 CSS 규칙 적용):
 
 ```ts
 console.log('Not focused')
@@ -198,10 +198,10 @@ console.log('Focused') // [!code focus]
 console.log('Not focused')
 ```
 
-- Outputs: `<span class="line focused">`
-- The outer `<pre>` tag is modified: `<pre class="has-focused">`
+- 출력: `<span class="line focused">`
+- 외부 `<pre>` 태그 변경: `<pre class="has-focused">`
 
-You can also focus multiple lines with a single comment:
+하나의 주석으로 여러 줄을 포커스할 수도 있습니다:
 
 ````md
 ```ts
@@ -212,7 +212,7 @@ console.log('Not focused')
 ```
 ````
 
-Renders:
+렌더링:
 
 ```ts
 // [!code focus:3]
@@ -225,7 +225,7 @@ console.log('Not focused')
 
 ### `transformerNotationErrorLevel`
 
-Use `[!code error]` and `[!code warning]` to mark a line with an error and warning levels.
+`[!code error]`와 `[!code warning]`을 사용해 줄을 오류 또는 경고로 표시합니다.
 
 ````md
 ```ts
@@ -235,11 +235,11 @@ console.warn('Warning') // [\!code warning]
 ```
 ````
 
-- Outputs: `<span class="line highlighted error">` for errors
-- Outputs: `<span class="line highlighted warning">` for warnings
-- The outer `<pre>` tag is modified: `<pre class="has-highlighted">`
+- 오류의 경우: `<span class="line highlighted error">`로 출력
+- 경고의 경우: `<span class="line highlighted warning">`로 출력
+- 외부 `<pre>` 태그 변경: `<pre class="has-highlighted">`
 
-With some additional CSS rules, you can make it look like this:
+추가 CSS 규칙을 적용하면 이렇게 표시할 수 있습니다:
 
 ```ts
 console.log('No errors or warnings')
@@ -251,16 +251,18 @@ console.warn('Warning') // [!code warning]
 
 ### `transformerRenderWhitespace`
 
-Render whitespaces (tabs and spaces) as individual spans, with classes `tab` and `space`.
+공백(탭 및 스페이스)을 개별적인 `<span>` 요소로 렌더링하고, 클래스는 `tab`과 `space`를 사용합니다.
 
-With some additional CSS rules, you can make it look like this:
+추가 CSS 규칙을 적용하면 이렇게 표시할 수 있습니다:
 
 <div class="language-js vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">js</span><pre v-pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;" tabindex="0"><code><span class="line"><span style="--shiki-light:#AB5959;--shiki-dark:#CB7676;">function</span><span class="space"> </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">block</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">{</span></span>
 <span class="line"><span class="space"> </span><span class="space"> </span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">space</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span></span>
-<span class="line"><span class="tab">&#9;</span><span class="tab">&#9;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">tab</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE;"> </span></span>
+<span class="line"><span class="tab">&#9;</span><span class="tab">&#9;</span><span style="--shiki-light:#59873A;--shiki-dark:#80A665;">tab</span><span style="--shiki-light:#999999;--shiki-dark:#666666;">(</span><span class="space"> </span><span style="--shiki-light:#999999;--shiki-dark:#666666;">)</span><span style="--shiki-light:#393A34;--shiki-dark:#DBD7CAEE;">
+
+ </span></span>
 <span class="line"><span style="--shiki-light:#999999;--shiki-dark:#666666;">}</span></span></code></pre></div>
 
-::: details Example CSS
+::: details 예시 CSS
 
 ```css
 .vp-code .tab,
@@ -287,7 +289,7 @@ With some additional CSS rules, you can make it look like this:
 
 ### `transformerMetaHighlight`
 
-Highlight lines based on the [meta string](/guide/transformers#meta) provided on the code snippet.
+코드 스니펫에 제공된 [메타 문자열](/guide/transformers#meta)에 따라 줄을 강조합니다.
 
 ````md
 ```js {1,3-4}
@@ -298,7 +300,7 @@ console.log('4')
 ```
 ````
 
-Renders (with custom CSS rules):
+렌더링 (사용자 정의 CSS 규칙 적용):
 
 ```js {1,3-4}
 console.log('1')
@@ -307,11 +309,11 @@ console.log('3')
 console.log('4')
 ```
 
-- Outputs: `<span class="line highlighted">` for included lines.
+- 지정된 줄은 `<span class="line highlighted">`로 출력됩니다.
 
 ### `transformerMetaWordHighlight`
 
-Highlight words based on the meta string provided on the code snippet.
+코드 스니펫에 제공된 메타 문자열에 따라 단어를 강조합니다.
 
 ````md
 ```js /Hello/
@@ -321,30 +323,30 @@ console.log(msg) // prints Hello World
 ```
 ````
 
-Renders (with custom CSS rules):
+렌더링 (사용자 정의 CSS 규칙 적용):
 
 ```js /Hello/
 const msg = 'Hello World'
 console.log(msg) // prints Hello World
 ```
 
-Outputs: `<span class="highlighted-word">Hello</span>` for matched words.
+매칭된 단어는 `<span class="highlighted-word">Hello</span>`로 출력됩니다.
 
 ---
 
 ### `transformerCompactLineOptions`
 
-Support for `shiki`'s `lineOptions` that is removed in `shiki`.
+`shiki`에서 제거된 `lineOptions`에 대한 지원.
 
 ---
 
 ### `transformerRemoveLineBreak`
 
-Remove line breaks between `<span class="line">`. Useful when you set `display: block` to `.line` in CSS.
+`<span class="line">` 사이의 줄바꿈을 제거합니다. CSS에서 `.line`에 `display: block`을 설정할 때 유용합니다.
 
 ---
 
 ### `transformerRemoveNotationEscape`
 
-Transform `// [\!code ...]` to `// [!code ...]`.
-Avoid rendering the escaped notation syntax as it is.
+`// [\!code ...]`를 `// [!code ...]`로 변환합니다.
+이렇게 하면 이스케이프된 주석 구문이 그대로 렌더링되는 것을 방지할 수 있습니다.
